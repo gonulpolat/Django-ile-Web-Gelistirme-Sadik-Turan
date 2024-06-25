@@ -9,3 +9,8 @@ def home(request):
 def courses(request):
     return HttpResponse("kurs listesi")
 
+def contact(request):
+    return HttpResponse("iletişim sayfası")
+
+def about(request):
+    return HttpResponse("hakkımızda sayfası")
