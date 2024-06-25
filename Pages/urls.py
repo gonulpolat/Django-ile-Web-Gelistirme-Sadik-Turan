@@ -3,8 +3,8 @@ from . import views
 
 # http://127.0.0.1:8000/                 => anasayfa
 # http://127.0.0.1:8000/home             => anasayfa
-# http://127.0.0.1:8000/contact          => anasayfa
-# http://127.0.0.1:8000/about            => anasayfa
+# http://127.0.0.1:8000/contact          => iletişim sayfası
+# http://127.0.0.1:8000/about            => hakkımızda sayfası
 
 urlpatterns = [
     path("", views.home),
