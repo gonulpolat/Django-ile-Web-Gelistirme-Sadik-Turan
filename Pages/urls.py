@@ -2,13 +2,9 @@ from django.urls import path
 from . import views
 
 # http://127.0.0.1:8000/                 => anasayfa
-# http://127.0.0.1:8000/client           => anasayfa
 # http://127.0.0.1:8000/home             => anasayfa
-# http://127.0.0.1:8000/client/home      => anasayfa
 # http://127.0.0.1:8000/contact          => anasayfa
-# http://127.0.0.1:8000/client/contact   => anasayfa
 # http://127.0.0.1:8000/about            => anasayfa
-# http://127.0.0.1:8000/client/about     => anasayfa
 
 urlpatterns = [
     path("", views.home),
