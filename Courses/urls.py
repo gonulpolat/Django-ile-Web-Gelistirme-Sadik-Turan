@@ -1,6 +1,5 @@
-from django.http import HttpResponse
 from django.urls import path
-
+from . import views
 
 # http://127.0.0.1:8000/                => anasayfa
 # http://127.0.0.1:8000/client          => anasayfa
@@ -10,14 +9,8 @@ from django.urls import path
 # http://127.0.0.1:8000/client/courses  => kurs listesi
 
 
-def home(request):
-    return HttpResponse("anasayfa")
-
-def courses(request):
-    return HttpResponse("kurs listesi")
-
 urlpatterns = [
-    path("", home),
-    path("home", home),
-    path("courses", courses),
+    path("", views.home),
+    path("home", views.home),
+    path("courses", views.courses),
 ]
