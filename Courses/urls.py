@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.urls import path
 
-# http://127.0.0.1:8000/          -> Anasayfa
-# http://127.0.0.1:8000/anasayfa  -> Anasayfa
-# http://127.0.0.1:8000/kurslar   -> Kurslar Listesi
+# http://127.0.0.1:8000/client           -> Anasayfa
+# http://127.0.0.1:8000/client/anasayfa  -> Anasayfa
+# http://127.0.0.1:8000/client/kurslar   -> Kurslar Listesi
 
 def home(request):
     return HttpResponse("Anasayfa")
