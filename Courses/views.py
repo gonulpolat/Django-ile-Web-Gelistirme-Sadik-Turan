@@ -6,3 +6,11 @@ from django.shortcuts import render
 def courses(request):
     return HttpResponse("Kurslar Listesi")
 
+def details(request):
+    return HttpResponse("Kurs Detay Sayfası")
+
+def programming(request):
+    return HttpResponse("Programlama Kurs Sayfası")
+
+def mobilapps(request):
+    return HttpResponse("Mobil Uygulama Kurs Sayfası")
