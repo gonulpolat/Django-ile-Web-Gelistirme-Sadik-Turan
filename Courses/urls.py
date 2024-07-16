@@ -5,5 +5,6 @@ urlpatterns = [
     path("", views.courses),
     path("liste", views.courses),
     path("detay", views.details),
-    path("<category>", views.getCoursesByCategory)
+    path("<int:category_id>", views.getCoursesByCategoryId),
+    path("<str:category_name>", views.getCoursesByCategory)
 ]
