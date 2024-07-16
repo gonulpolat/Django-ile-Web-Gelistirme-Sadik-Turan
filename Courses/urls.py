@@ -13,4 +13,5 @@ urlpatterns = [
     path("detay", views.details),
     path("programlama", views.programming),
     path("mobil-uygulamalar", views.mobilapps),
+    path("<category>", views.getCoursesByCategory)
 ]

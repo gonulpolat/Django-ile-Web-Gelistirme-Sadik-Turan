@@ -14,3 +14,6 @@ def programming(request):
 
 def mobilapps(request):
     return HttpResponse("Mobil Uygulama Kurs Sayfası")
+
+def getCoursesByCategory(request, category):
+    return HttpResponse("Kategoriye göre kurs listesi")
