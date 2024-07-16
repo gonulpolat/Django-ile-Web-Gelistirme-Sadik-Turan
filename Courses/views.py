@@ -6,8 +6,8 @@ from django.shortcuts import render
 def courses(request):
     return HttpResponse("Kurslar Listesi")
 
-def details(request):
-    return HttpResponse("Kurs Detay Sayfası")
+def details(request, course_name):
+    return HttpResponse(f"{course_name} detay sayfası")
 
 def getCoursesByCategory(request, category_name):
 
