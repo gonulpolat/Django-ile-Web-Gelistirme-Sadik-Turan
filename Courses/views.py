@@ -11,7 +11,7 @@ data = {
 }
 
 def courses(request):
-    return HttpResponse("Kurslar Listesi")
+    return HttpResponse("<h1> Kurs Listesi </h1>")
 
 def details(request, course_name):
     return HttpResponse(f"{course_name} detay sayfası")
