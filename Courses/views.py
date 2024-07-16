@@ -10,4 +10,14 @@ def details(request):
     return HttpResponse("Kurs Detay Sayfası")
 
 def getCoursesByCategory(request, category):
-    return HttpResponse(f"{category} kategorisine ait kurs listesi")
+
+    text = ""
+
+    if category == "programlama":
+        text = "Programlama kategorisine ait kurslar"
+    elif category == "web-gelistirme":
+        text = "Web Geliştirme kategorisine ait kurslar"
+    else:
+        text = "Bu kategoriye ait kurs bulunamadı"
+
+    return HttpResponse(text)
