@@ -3,8 +3,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def home(request):
-    return HttpResponse("Anasayfa")
+def index(request):
+    return render(request, "index.html")
 
 def contact(request):
     return HttpResponse("İletişim Sayfası")
