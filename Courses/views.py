@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render
+from django.urls import reverse
 
 # Create your views here.
 
@@ -30,6 +31,8 @@ def getCoursesByCategoryId(request, category_id):
     if category_id > len(category_list) or category_id < 1:
         return HttpResponseNotFound("Yanlış kategori seçimi")
     
-    redirect_text = category_list[category_id - 1]
+    category_name = category_list[category_id - 1]
 
-    return redirect("/kurs/kategori/" + redirect_text)
+    redirect_url = reverse("courses_by_category", args=[category_name])
+
+    return redirect(redirect_url)
