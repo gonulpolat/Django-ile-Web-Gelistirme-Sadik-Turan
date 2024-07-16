@@ -9,11 +9,5 @@ def courses(request):
 def details(request):
     return HttpResponse("Kurs Detay Sayfası")
 
-def programming(request):
-    return HttpResponse("Programlama Kurs Sayfası")
-
-def mobilapps(request):
-    return HttpResponse("Mobil Uygulama Kurs Sayfası")
-
 def getCoursesByCategory(request, category):
-    return HttpResponse("Kategoriye göre kurs listesi")
+    return HttpResponse(f"{category} kategorisine ait kurs listesi")
