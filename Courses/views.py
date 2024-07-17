@@ -10,6 +10,9 @@ data = {
     "mobil-uygulamalar": "Mobil Uygulamalar kategorisine ait kurslar"
 }
 
+def index(request):
+    return render(request, "index.html")
+
 def courses(request):
 
     category_list = list(data.keys())
