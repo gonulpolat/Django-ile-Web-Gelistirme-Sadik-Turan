@@ -7,10 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
+    {% block css_files %}{% endblock css_files %}
     <title>CourseApp | {% block page_title %}{% endblock page_title %}</title>
   </head>
   <body>
@@ -64,5 +61,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"></script>
+    {% block js_files %}{% endblock js_files %}
   </body>
 </html>
