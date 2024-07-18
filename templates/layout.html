@@ -17,13 +17,13 @@
 
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a href="kurs" class="nav-link">Kurslar</a>
+            <a href="/kurs" class="nav-link">Kurslar</a>
           </li>
           <li class="nav-item">
-            <a href="contact" class="nav-link">İletişim</a>
+            <a href="/contact" class="nav-link">İletişim</a>
           </li>
           <li class="nav-item">
-            <a href="about" class="nav-link">Hakkımızda</a>
+            <a href="/about" class="nav-link">Hakkımızda</a>
           </li>
         </ul>
       </div>
@@ -54,6 +54,7 @@
         </div>
         <div class="col-9">
           <!--content-->
+          {% block content %} {% endblock content %}
         </div>
       </div>
     </div>
