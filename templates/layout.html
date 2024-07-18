@@ -12,53 +12,10 @@
   </head>
   <body>
     <!--navbar-->
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
-      <div class="container">
-        <a href="/" class="navbar-brand">Course App</a>
-
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a href="/kurs" class="nav-link">Kurslar</a>
-          </li>
-          <li class="nav-item">
-            <a href="/contact" class="nav-link">İletişim</a>
-          </li>
-          <li class="nav-item">
-            <a href="/about" class="nav-link">Hakkımızda</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    {% include "partials/_nav.html" %}
 
     <!---->
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-3">
-          <!--menu-->
-          <div class="list-group">
-            <a
-              href="kurs/kategori/programlama"
-              class="list-group-item list-group-item-action"
-              >Programlama</a
-            >
-            <a
-              href="kurs/kategori/web-gelistirme"
-              class="list-group-item list-group-item-action"
-              >Web Geliştirme</a
-            >
-            <a
-              href="kurs/kategori/mobil-uygulamalar"
-              class="list-group-item list-group-item-action"
-              >Mobil Uygulamalar</a
-            >
-          </div>
-        </div>
-        <div class="col-9">
-          <!--content-->
-          {% block content %} {% endblock content %}
-        </div>
-      </div>
-    </div>
+    {% block content %} {% endblock content %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"></script>
     {% block js_files %}{% endblock js_files %}
