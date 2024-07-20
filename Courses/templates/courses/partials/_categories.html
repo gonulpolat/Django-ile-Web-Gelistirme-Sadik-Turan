@@ -1,17 +1,5 @@
 <div class="list-group">
-  <a
-    href="kurs/kategori/programlama"
-    class="list-group-item list-group-item-action"
-    >Programlama</a
-  >
-  <a
-    href="kurs/kategori/web-gelistirme"
-    class="list-group-item list-group-item-action"
-    >Web Geliştirme</a
-  >
-  <a
-    href="kurs/kategori/mobil-uygulamalar"
-    class="list-group-item list-group-item-action"
-    >Mobil Uygulamalar</a
-  >
+    {% for category in categories %}
+        <a href="{% url "courses_by_category" category %}" class="list-group-item list-group-item-action"> {{ category }} </a>
+    {% endfor %}
 </div>
