@@ -14,7 +14,9 @@
         <div class="col-9">
             <!--content-->
             {% for course in courses %}
-                {% include "courses/partials/_course.html" %}
+                {% if course.isActive %}
+                    {% include "courses/partials/_course.html" %}
+                {% endif %}
             {% endfor %}
         </div>
         </div>
