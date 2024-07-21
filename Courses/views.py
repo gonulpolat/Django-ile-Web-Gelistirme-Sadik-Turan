@@ -2,7 +2,7 @@ from datetime import date, datetime
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from .models import Course
+from .models import Category, Course
 
 # Create your views here.
 
@@ -87,7 +87,7 @@ db = {
 
 def index(request):
 
-    kategoriler = db["categories"]
+    kategoriler = Category.objects.all()
 
     kurslar = Course.objects.filter(isActive=True)
 
