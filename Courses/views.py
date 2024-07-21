@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -18,7 +18,7 @@ db = {
             "description": "JavaScript, geliştiricilerin etkileşimli web sayfaları oluşturmak için kullandığı bir programlama dilidir. JavaScript işlevleri, sosyal medya akışlarını yenilemekten animasyonlar ve etkileşimli haritalar göstermeye kadar, bir web sitesi kullanıcısının deneyimini iyileştirebilir.",
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/57e6d0434253b10ff3d8992cc12c30771037dbf852547941762a7fdc974c_640.jpg",
             "slug": "javascript-kursu",
-            "date": date(2024, 1, 16),
+            "date": datetime.now(),
             "isActive": True,
             "isUpdated": True
         },
