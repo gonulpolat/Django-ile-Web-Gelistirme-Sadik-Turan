@@ -19,7 +19,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/57e6d0434253b10ff3d8992cc12c30771037dbf852547941762a7fdc974c_640.jpg",
             "slug": "javascript-kursu",
             "date": date(2024, 1, 16),
-            "isActive": True
+            "isActive": True,
+            "isUpdated": True
         },
         {
             "title": "Python Kursu",
@@ -27,7 +28,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/54e4d14b4f56ad14f1dc8460962e33791c3ad6e04e507440752f78d09548c4_640.jpg",
             "slug": "python-kursu",
             "date": date(2024, 4, 26),
-            "isActive": True
+            "isActive": True,
+            "isUpdated": False
         },
         {
             "title": "Php Kursu",
@@ -35,7 +37,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/54e5d3464357ab14f1dc8460962e33791c3ad6e04e50744172297cd59645c1_640.jpg",
             "slug": "php-kursu",
             "date": date(2024, 10, 10),
-            "isActive": False
+            "isActive": False,
+            "isUpdated": True
         },
         {
             "title": "Java Kursu",
@@ -43,7 +46,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/54e9d1454b5ba914f1dc8460962e33791c3ad6e04e507440752b7edc9649c2_640.jpg",
             "slug": "java-kursu",
             "date": date(2024, 3, 1),
-            "isActive": True
+            "isActive": True,
+            "isUpdated": True
         },
         {
             "title": "Html Kursu",
@@ -51,7 +55,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/57e4d1474e5ba914f1dc8460962e33791c3ad6e04e5074417d2f7dd49f4ec6_640.jpg",
             "slug": "html-kursu",
             "date": date(2024, 7, 7),
-            "isActive": False
+            "isActive": False,
+            "isUpdated": True
         },
         {
             "title": "Perl Kursu",
@@ -59,7 +64,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/52e1d64a435aae14f1dc8460962e33791c3ad6e04e507441722a72dd904ac1_640.jpg",
             "slug": "perl-kursu",
             "date": date(2024, 1, 28),
-            "isActive": True
+            "isActive": True,
+            "isUpdated": False
         },
         {
             "title": "C# Kursu",
@@ -67,7 +73,8 @@ db = {
             "imageUrl": "https://randomwordgenerator.com/img/picture-generator/5fe5d5434f4faa0df7c5d57bc32f3e7b1d3ac3e455517349772672d595_640.jpg",
             "slug": "csharp-kursu",
             "date": date(2024, 12, 12),
-            "isActive": True
+            "isActive": True,
+            "isUpdated": True
         }
     ],
     "categories": [
