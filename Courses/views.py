@@ -16,7 +16,7 @@ db = {
         {
             "title": "Javascript Kursu",
             "description": "JavaScript, geliştiricilerin etkileşimli web sayfaları oluşturmak için kullandığı bir programlama dilidir. JavaScript işlevleri, sosyal medya akışlarını yenilemekten animasyonlar ve etkileşimli haritalar göstermeye kadar, bir web sitesi kullanıcısının deneyimini iyileştirebilir.",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/57e6d0434253b10ff3d8992cc12c30771037dbf852547941762a7fdc974c_640.jpg",
+            "imageUrl": "javascript.png",
             "slug": "javascript-kursu",
             "date": datetime.now(),
             "isActive": True,
@@ -25,7 +25,7 @@ db = {
         {
             "title": "Python Kursu",
             "description": "Python; web uygulamaları, yazılım geliştirme, veri bilimi ve makine öğreniminde (ML) yaygın olarak kullanılan bir programlama dilidir. Geliştiriciler, etkili ve öğrenmesi kolay olduğu ve birçok farklı platformda çalıştırılabildiği için Python'ı kullanır.",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/54e4d14b4f56ad14f1dc8460962e33791c3ad6e04e507440752f78d09548c4_640.jpg",
+            "imageUrl": "python.png",
             "slug": "python-kursu",
             "date": date(2024, 4, 26),
             "isActive": True,
@@ -34,7 +34,7 @@ db = {
         {
             "title": "Php Kursu",
             "description": "PHP (Hypertext Preprocessor), yaygın olarak kullanılan web tabanlı ve açık kaynak kodlu bir programlama dilidir.",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/54e5d3464357ab14f1dc8460962e33791c3ad6e04e50744172297cd59645c1_640.jpg",
+            "imageUrl": "php.png",
             "slug": "php-kursu",
             "date": date(2024, 10, 10),
             "isActive": False,
@@ -43,7 +43,7 @@ db = {
         {
             "title": "Java Kursu",
             "description": "Java programlama dili, kolayca aktarılabilir kodu sayesinde platformlar ve cihazlar arasında kullanılır. Java'nın popüler kullanımları arasında kurumsal yazılım, mobil uygulama geliştirme, web uygulamaları, bulut tabanlı uygulamalar, oyunlar ve IoT uygulamaları yer alır.",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/54e9d1454b5ba914f1dc8460962e33791c3ad6e04e507440752b7edc9649c2_640.jpg",
+            "imageUrl": "java.png",
             "slug": "java-kursu",
             "date": date(2024, 3, 1),
             "isActive": True,
@@ -52,7 +52,7 @@ db = {
         {
             "title": "Html Kursu",
             "description": "İngilizce Hyper Text Markup Language cümlesinin baş harflerinden oluşur. İşaretleme dili olan Html, web sayfalarının hazırlanmasında kullanılan sistemdir.",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/57e4d1474e5ba914f1dc8460962e33791c3ad6e04e5074417d2f7dd49f4ec6_640.jpg",
+            "imageUrl": "html.png",
             "slug": "html-kursu",
             "date": date(2024, 7, 7),
             "isActive": False,
@@ -61,7 +61,7 @@ db = {
         {
             "title": "Perl Kursu",
             "description": "Perl, bir dil bilimci olup NASA'da sistem yöneticisi olarak çalışan Larry Wall tarafından geliştirilmiş bir programlama dilidir. ",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/52e1d64a435aae14f1dc8460962e33791c3ad6e04e507441722a72dd904ac1_640.jpg",
+            "imageUrl": "perl.png",
             "slug": "perl-kursu",
             "date": date(2024, 1, 28),
             "isActive": True,
@@ -70,7 +70,7 @@ db = {
         {
             "title": "C# Kursu",
             "description": "C# yani diğer bir adıyla C Sharp, Microsoft tarafından geliştirilen sunucu ve gömülü sistemleri çalıştırmak için tasarlanmış programlama dilidir.",
-            "imageUrl": "https://randomwordgenerator.com/img/picture-generator/5fe5d5434f4faa0df7c5d57bc32f3e7b1d3ac3e455517349772672d595_640.jpg",
+            "imageUrl": "csharp.png",
             "slug": "csharp-kursu",
             "date": date(2024, 12, 12),
             "isActive": True,
