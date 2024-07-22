@@ -1,6 +1,6 @@
 from datetime import date, datetime
-from django.http import Http404, HttpResponseNotFound
-from django.shortcuts import redirect, render
+from django.http import HttpResponseNotFound
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from .models import Category, Course
 
@@ -97,11 +97,8 @@ def index(request):
     })
 
 def details(request, course_id):
-
-    try:
-        course = Course.objects.get(pk=course_id)
-    except:
-        raise Http404()
+    
+    course = get_object_or_404(Course, pk=course_id)
 
     context = {
         "course": course
