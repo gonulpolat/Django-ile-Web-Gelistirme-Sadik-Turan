@@ -96,8 +96,15 @@ def index(request):
         "categories": kategoriler
     })
 
-def details(request, course_name):
-    return HttpResponse(f"{course_name} detay sayfası")
+def details(request, course_id):
+
+    course = Course.objects.get(pk=course_id)
+
+    context = {
+        "course": course
+    }
+
+    return render(request, "courses/details.html", context)
 
 def getCoursesByCategory(request, category_name):
 
