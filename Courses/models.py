@@ -9,7 +9,7 @@ class Course(models.Model):
     imageUrl = models.CharField(max_length=100)
     date = models.DateField()
     isActive = models.BooleanField()
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField(default="", null=False, unique=True, db_index=True)
 
     def __str__(self):
         return f"{self.title}"
