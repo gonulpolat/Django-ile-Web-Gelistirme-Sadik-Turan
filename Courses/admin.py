@@ -3,8 +3,11 @@ from .models import Category, Course
 
 # Register your models here.
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Course, CourseAdmin)
-admin.site.register(Category)
