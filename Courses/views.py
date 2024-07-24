@@ -96,9 +96,9 @@ def index(request):
         "categories": kategoriler
     })
 
-def details(request, course_id):
+def details(request, slug):
     
-    course = get_object_or_404(Course, pk=course_id)
+    course = get_object_or_404(Course, slug=slug)
 
     context = {
         "course": course
