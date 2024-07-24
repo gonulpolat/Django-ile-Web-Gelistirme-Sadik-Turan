@@ -5,7 +5,9 @@ from .models import Category, Course
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'slug')
+    list_display_links = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
