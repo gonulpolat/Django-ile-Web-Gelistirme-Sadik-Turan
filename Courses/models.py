@@ -8,9 +8,14 @@ class Course(models.Model):
     imageUrl = models.CharField(max_length=100)
     date = models.DateField()
     isActive = models.BooleanField()
+    slug = models.SlugField(default="", null=False)
 
     def __str__(self):
         return f"{self.title}"
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
     
 class Category(models.Model):
     name = models.CharField(max_length=50)
