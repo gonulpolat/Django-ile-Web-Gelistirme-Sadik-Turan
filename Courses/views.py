@@ -34,7 +34,8 @@ def getCoursesByCategory(request, slug):
 
     return render(request, "courses/index.html", {
         "courses": kurslar,
-        "categories": kategoriler
+        "categories": kategoriler,
+        "selected_category": slug
     })
 
 
