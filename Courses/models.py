@@ -14,7 +14,7 @@ class Course(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     imageUrl = models.CharField(max_length=100)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     isActive = models.BooleanField()
     slug = models.SlugField(default="", blank=True, editable=False, null=False, unique=True, db_index=True)
     category = models.ForeignKey(Category, default=1, on_delete=models.CASCADE)
@@ -25,5 +25,3 @@ class Course(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-
-    
