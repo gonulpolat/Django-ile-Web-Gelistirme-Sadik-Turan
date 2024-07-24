@@ -3,5 +3,8 @@ from .models import Category, Course
 
 # Register your models here.
 
-admin.site.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Course, CourseAdmin)
 admin.site.register(Category)
