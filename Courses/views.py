@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Category, Course
 
 # Create your views here.
@@ -17,12 +17,23 @@ def index(request):
 
 def search(request):
 
-    print(request.GET)   
-    # http://127.0.0.1:8000/kurs/search?q=python                --> <QueryDict: {'q': ['python']}>
-    # http://127.0.0.1:8000/kurs/search?q=python&order_by=date  --> <QueryDict: {'q': ['python'], 'order_by': ['date']}>
+    if "q" in request.GET and request.GET["q"] != "":
+        q = request.GET["q"]
+        kurslar = Course.objects.filter(isActive=True, title__icontains=q).order_by("date")
+        kategoriler = Category.objects.all()
 
-    print(request.GET.get("q"))        # python
-    print(request.GET.get("order_by")) # date
+    else:
+        return redirect("/kurs")
+
+    paginator = Paginator(kurslar, 2)
+    page = request.GET.get("page", 1)
+    page_obj = paginator.page(page)
+
+    return render(request, "courses/list.html", {
+        "page_obj": page_obj,
+        "categories": kategoriler
+    })
+
 
 def details(request, slug):
     
