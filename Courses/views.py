@@ -15,6 +15,15 @@ def index(request):
         "categories": kategoriler
     })
 
+def search(request):
+
+    print(request.GET)   
+    # http://127.0.0.1:8000/kurs/search?q=python                --> <QueryDict: {'q': ['python']}>
+    # http://127.0.0.1:8000/kurs/search?q=python&order_by=date  --> <QueryDict: {'q': ['python'], 'order_by': ['date']}>
+
+    print(request.GET.get("q"))        # python
+    print(request.GET.get("order_by")) # date
+
 def details(request, slug):
     
     course = get_object_or_404(Course, slug=slug)
