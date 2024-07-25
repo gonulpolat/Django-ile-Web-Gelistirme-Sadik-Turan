@@ -8,7 +8,7 @@ def index(request):
 
     kategoriler = Category.objects.all()
 
-    kurslar = Course.objects.filter(isActive=True)
+    kurslar = Course.objects.filter(isActive=True, isHome=True)
 
     return render(request, "courses/index.html", {
         "courses": kurslar,
