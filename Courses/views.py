@@ -30,6 +30,9 @@ def search(request):
         "categories": kategoriler
     })
 
+def createCourse(request):
+    return render(request, "courses/create_course.html")
+
 
 def details(request, slug):
     
