@@ -50,6 +50,16 @@ def createCourse(request):
         "form": form
     })
 
+def courseList(request):
+    
+    kurslar =Course.objects.all()
+
+    return render(request, "courses/course_list.html", {
+        "courses": kurslar
+    })
+
+def courseEdit(request, id):
+    pass
 
 def details(request, slug):
     
