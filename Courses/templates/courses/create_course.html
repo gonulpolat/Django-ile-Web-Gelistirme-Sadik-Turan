@@ -23,7 +23,7 @@
 
                 <form action="{% url "create_course" %}" method="POST">
                     {% csrf_token %}
-                    {{ form }}
+                    {{ form.as_p }}
                     <button type="submit" class="btn btn-primary">Kaydet</button>
                 </form>
             </div>
