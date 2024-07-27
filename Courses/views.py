@@ -33,7 +33,22 @@ def search(request):
     })
 
 def createCourse(request):
-    # GET sourgusu için çalışır
+    
+    if request.method == "POST":
+        form = CourseCreateForm(request.POST)
+
+        if form.is_valid():
+
+            course = Course(
+                title=form.cleaned_data["title"],
+                description=form.cleaned_data["description"],
+                imageUrl=form.cleaned_data["imageUrl"],
+                slug=form.cleaned_data["slug"]
+            )
+
+            course.save()
+
+            return redirect("kurs")
         
     form = CourseCreateForm()
 
