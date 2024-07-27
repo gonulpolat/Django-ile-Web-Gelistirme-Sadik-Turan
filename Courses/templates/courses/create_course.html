@@ -23,7 +23,12 @@
 
                 <form action="{% url "create_course" %}" method="POST" novalidate>
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+                        {{ form.title }}
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Kaydet</button>
                 </form>
             </div>
