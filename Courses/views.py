@@ -37,8 +37,8 @@ def createCourse(request):
         description = request.POST["description"]
         imageUrl = request.POST["imageUrl"]
         slug = request.POST["slug"]
-        isActive = request.POST["isActive"]
-        isHome = request.POST["isHome"]
+        isActive = request.POST.get("isActive", False)
+        isHome = request.POST.get("isHome", False)
         
         print(title, description, imageUrl, slug, isActive, isHome)
 
