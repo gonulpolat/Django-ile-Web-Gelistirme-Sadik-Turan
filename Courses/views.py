@@ -40,7 +40,17 @@ def createCourse(request):
         isActive = request.POST.get("isActive", False)
         isHome = request.POST.get("isHome", False)
         
-        print(title, description, imageUrl, slug, isActive, isHome)
+        if isActive == "on":
+            isActive = True
+    
+        if isHome == "on":
+            isHome = True
+
+        course = Course(title=title, description=description, imageUrl=imageUrl, slug=slug, isActive=isActive, isHome=isHome)
+
+        course.save()
+
+        return redirect("/kurs")
 
     return render(request, "courses/create_course.html")
 
