@@ -5,7 +5,7 @@ class CourseCreateForm(forms.Form):
         label="Başlık", 
         required=True,
         error_messages={"required": "Kurs başlığı zorunludur."},
-        widget=forms.TextInput()  # default widget
+        widget=forms.TextInput(attrs={"class": "form-control"})  # default widget
         )
     description = forms.CharField(widget=forms.Textarea)
     imageUrl = forms.CharField()
