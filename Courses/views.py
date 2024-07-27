@@ -48,9 +48,10 @@ def createCourse(request):
 
             course.save()
 
-            return redirect("kurs")
+            return redirect("/kurs")
         
-    form = CourseCreateForm()
+    else:
+        form = CourseCreateForm()  # Get request: sayfa ilk açıldığında boş form gösterilecek
 
     return render(request, "courses/create_course.html", {
         "form": form
