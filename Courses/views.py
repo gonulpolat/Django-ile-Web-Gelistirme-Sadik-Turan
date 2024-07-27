@@ -61,7 +61,12 @@ def courseList(request):
 def courseEdit(request, id):
     course = get_object_or_404(Course, pk=id)
 
-    form = CourseEditForm(instance=course)
+    if request.method == "POST":
+        form = CourseEditForm(request.POST, instance=course)
+        form.save()
+        return redirect("course_list")
+    else:
+        form = CourseEditForm(instance=course)
 
     return render(request, "courses/course_edit.html", {
         "form": form
