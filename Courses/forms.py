@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import TextInput, Textarea
+from django.forms import SelectMultiple, TextInput, Textarea
 
 from Courses.models import Course
 
@@ -38,7 +38,7 @@ class CourseCreateForm(forms.ModelForm):
 class CourseEditForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = ('title', 'description', 'imageUrl', 'slug')
+        fields = ('title', 'description', 'imageUrl', 'slug', 'categories', 'isActive', 'isHome')
         labels = {
             'title': 'Title',
             'description': 'Description',
@@ -49,7 +49,8 @@ class CourseEditForm(forms.ModelForm):
             'title': TextInput(attrs={'class': 'form-control'}),
             'description': Textarea(attrs={'class': 'form-control'}),
             'imageUrl': TextInput(attrs={'class': 'form-control'}),
-            'slug': TextInput(attrs={'class': 'form-control'})
+            'slug': TextInput(attrs={'class': 'form-control'}),
+            'categories': SelectMultiple(attrs={'class': 'form-control'})
         }
         error_messages = {
             'title': {
