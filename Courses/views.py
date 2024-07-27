@@ -31,6 +31,17 @@ def search(request):
     })
 
 def createCourse(request):
+    
+    if request.method == "POST":
+        title = request.POST["title"]
+        description = request.POST["description"]
+        imageUrl = request.POST["imageUrl"]
+        slug = request.POST["slug"]
+        isActive = request.POST["isActive"]
+        isHome = request.POST["isHome"]
+        
+        print(title, description, imageUrl, slug, isActive, isHome)
+
     return render(request, "courses/create_course.html")
 
 
