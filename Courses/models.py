@@ -10,9 +10,9 @@ class Category(models.Model):
         return f"{self.name}"
 
 class Course(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
     description = models.TextField()
-    imageUrl = models.CharField(max_length=100)
+    imageUrl = models.CharField(max_length=50)
     date = models.DateField(auto_now_add=True)
     isActive = models.BooleanField(default=False)
     isHome = models.BooleanField(default=False)
