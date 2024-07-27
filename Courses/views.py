@@ -46,9 +46,21 @@ def createCourse(request):
         if isHome == "on":
             isHome = True
 
+        error = False
+        msg = ""
+
         if title == "":
+            error = True
+            msg = "Başlık boş olamaz."
+
+        elif len(title) < 3:
+            error = True
+            msg = "Başlık en az 3 karakter olmalıdır."
+
+        if error:
             return render(request, "courses/create_course.html", {
-                "error": True
+                "error": True,
+                "msg": msg
             })
 
         course = Course(title=title, description=description, imageUrl=imageUrl, slug=slug, isActive=isActive, isHome=isHome)
