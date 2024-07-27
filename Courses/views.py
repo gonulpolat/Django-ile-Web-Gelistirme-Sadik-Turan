@@ -1,5 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
+
+from Courses.forms import CourseCreateForm
 from .models import Category, Course
 
 # Create your views here.
@@ -31,45 +33,13 @@ def search(request):
     })
 
 def createCourse(request):
-    
-    if request.method == "POST":
-        title = request.POST["title"]
-        description = request.POST["description"]
-        imageUrl = request.POST["imageUrl"]
-        slug = request.POST["slug"]
-        isActive = request.POST.get("isActive", False)
-        isHome = request.POST.get("isHome", False)
+    # GET sourgusu için çalışır
         
-        if isActive == "on":
-            isActive = True
-    
-        if isHome == "on":
-            isHome = True
+    form = CourseCreateForm()
 
-        error = False
-        msg = ""
-
-        if title == "":
-            error = True
-            msg = "Başlık boş olamaz."
-
-        elif len(title) < 3:
-            error = True
-            msg = "Başlık en az 3 karakter olmalıdır."
-
-        if error:
-            return render(request, "courses/create_course.html", {
-                "error": True,
-                "msg": msg
-            })
-
-        course = Course(title=title, description=description, imageUrl=imageUrl, slug=slug, isActive=isActive, isHome=isHome)
-
-        course.save()
-
-        return redirect("/kurs")
-
-    return render(request, "courses/create_course.html")
+    return render(request, "courses/create_course.html", {
+        "form": form
+    })
 
 
 def details(request, slug):
