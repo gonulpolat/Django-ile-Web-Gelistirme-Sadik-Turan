@@ -46,6 +46,11 @@ def createCourse(request):
         if isHome == "on":
             isHome = True
 
+        if title == "":
+            return render(request, "courses/create_course.html", {
+                "error": True
+            })
+
         course = Course(title=title, description=description, imageUrl=imageUrl, slug=slug, isActive=isActive, isHome=isHome)
 
         course.save()
