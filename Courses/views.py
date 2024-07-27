@@ -76,7 +76,7 @@ def courseDelete(request, id):
     course = get_object_or_404(Course, pk=id)
 
     if request.method == "POST":
-        Course.objects.get(pk=id).delete()
+        course.delete()
         return redirect("course_list")
 
     return render(request, "courses/course_delete.html", {
