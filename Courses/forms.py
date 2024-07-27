@@ -1,12 +1,10 @@
 from django import forms
 
-class CourseCreateForm(forms.Form):
-    title = forms.CharField(
-        label="Başlık", 
-        required=True,
-        error_messages={"required": "Kurs başlığı zorunludur."},
-        widget=forms.TextInput(attrs={"class": "form-control"})
-        )
-    description = forms.CharField(widget=forms.Textarea(attrs={"class": "form-control"}))
-    imageUrl = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))
-    slug = forms.SlugField(widget=forms.TextInput(attrs={"class": "form-control"}))
+from Courses.models import Course
+
+
+class CourseCreateForm(forms.ModelForm):
+    class Meta:
+        model = Course
+        fields = '__all__'
+        
