@@ -1,10 +1,8 @@
-import os
-import random
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
 from Courses.forms import CourseCreateForm, CourseEditForm, CourseUploadForm
-from .models import Category, Course
+from .models import Category, Course, Upload
 
 # Create your views here.
 
@@ -92,8 +90,9 @@ def upload(request):
         form = CourseUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            uploaded_image = request.FILES["image"]
-            handle_uploaded_file(uploaded_image)
+            image = Upload(image=request.FILES["image"])
+            image.save()
+           
             return render(request, "courses/success.html")
     
     else:
@@ -102,19 +101,6 @@ def upload(request):
     return render(request, "courses/upload.html", {
         "form": form
     })
-
-def handle_uploaded_file(file):
-    """
-    Dosya isimleri random sayılarla oluşturulacak.
-    Aynı isimde dosya yüklenirse de farklı isimlerle kaydedilecek.
-    """
-
-    number = random.randint(1, 99999)
-    file_name, file_extension = os.path.splitext(file.name)
-    name = file_name + "_" + str(number) + file_extension
-    with open("temp/" + name, "wb+") as destination:
-        for chunk in file.chunks():
-            destination.write(chunk)
 
 def details(request, slug):
     
