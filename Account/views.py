@@ -32,11 +32,21 @@ def UserRegister(request):
         repassword = request.POST['repassword']
 
         if password != repassword:
-            return render(request, 'account/register.html', {'error': 'Passwords do not match'})
+            return render(request, 'account/register.html', 
+                          {'error': 'Passwords do not match',
+                           "username": username,
+                           "email": email
+                           })
         if User.objects.filter(username=username).exists():
-            return render(request, 'account/register.html', {'error': 'Username is already taken'})
+            return render(request, 'account/register.html', 
+                          {'error': 'Username is already taken',
+                           "email": email
+                           })
         if User.objects.filter(email=email).exists():
-            return render(request, 'account/register.html', {'error': 'Email is already taken'})
+            return render(request, 'account/register.html', 
+                          {'error': 'Email is already taken',
+                           "username": username
+                           })
         
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
