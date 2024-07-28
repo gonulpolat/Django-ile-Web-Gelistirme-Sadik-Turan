@@ -6,8 +6,8 @@ from django.shortcuts import redirect, render
 
 def UserLogin(request):
 
-    if request.user.is_authenticated:
-        return redirect('index')
+    if request.user.is_authenticated and "next" in request.GET:
+        return render(request, 'account/login.html', {'error': 'You must be logged out to login as admin'})
 
     if request.method == 'POST':
         username = request.POST['username']

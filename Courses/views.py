@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 from Courses.forms import CourseCreateForm, CourseEditForm, CourseUploadForm
 from .models import Category, Course, Upload
@@ -33,7 +33,10 @@ def search(request):
         "categories": kategoriler
     })
 
-@login_required()
+def isAdmin(user):
+    return user.is_superuser
+
+@user_passes_test(isAdmin)
 def createCourse(request):
     
     if request.method == "POST":
@@ -52,6 +55,7 @@ def createCourse(request):
         "form": form
     })
 
+@login_required()
 def courseList(request):
     
     kurslar =Course.objects.all()
