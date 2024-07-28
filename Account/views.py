@@ -5,6 +5,9 @@ from django.shortcuts import redirect, render
 
 def UserLogin(request):
 
+    if request.user.is_authenticated:
+        return redirect('index')
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
