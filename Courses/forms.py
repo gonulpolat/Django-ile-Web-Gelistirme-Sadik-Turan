@@ -65,3 +65,7 @@ class CourseEditForm(forms.ModelForm):
                 'max_length': 'Fotoğraf URL\'si en fazla 50 karakter olabilir.'
             }
         }
+
+    
+class CourseUploadForm(forms.Form):
+    image = forms.FileField()

@@ -3,7 +3,7 @@ import random
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
-from Courses.forms import CourseCreateForm, CourseEditForm
+from Courses.forms import CourseCreateForm, CourseEditForm, CourseUploadForm
 from .models import Category, Course
 
 # Create your views here.
@@ -88,12 +88,20 @@ def courseDelete(request, id):
 def upload(request):
 
     if request.method == "POST":
-        uploaded_images = request.FILES.getlist("images")
-        for image in uploaded_images:
-            handle_uploaded_file(image)
-        return render(request, "courses/success.html")
+
+        form = CourseUploadForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            uploaded_image = request.FILES["image"]
+            handle_uploaded_file(uploaded_image)
+            return render(request, "courses/success.html")
     
-    return render(request, "courses/upload.html")
+    else:
+        form = CourseUploadForm()
+    
+    return render(request, "courses/upload.html", {
+        "form": form
+    })
 
 def handle_uploaded_file(file):
     """
