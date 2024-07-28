@@ -34,7 +34,7 @@ def search(request):
 
 def createCourse(request):
 
-    if not request.user.is_authenticated:
+    if not request.user.is_superuser:
         return redirect("index")
     
     if request.method == "POST":
