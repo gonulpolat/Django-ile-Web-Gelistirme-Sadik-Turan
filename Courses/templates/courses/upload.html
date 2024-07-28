@@ -14,7 +14,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <form action="{% url "upload" %}" method="POST">
+                <form action="{% url "upload" %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="file" name="image" class="form-control">
