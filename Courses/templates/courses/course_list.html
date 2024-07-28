@@ -27,7 +27,7 @@
                         {% for course in courses %}
                             <tr>
                                 <td>
-                                    <img src="{% static "courses/img/"|add:course.imageUrl %}" alt="{{ course.title }}" class="img-fluid">
+                                    <img src="{% static "courses/img/"|add:course.image %}" alt="{{ course.title }}" class="img-fluid">
                                 </td>
                                 <td> {{ course.title }} </td>
                                 <td> {{ course.slug }} </td>
