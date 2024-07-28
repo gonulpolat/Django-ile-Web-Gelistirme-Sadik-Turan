@@ -87,13 +87,18 @@ def upload(request):
 
     if request.method == "POST":
         uploaded_image = request.FILES["image"]
-        print(uploaded_image)
-        print(uploaded_image.name)
-        print(uploaded_image.size)
-        print(uploaded_image.content_type)
+        handle_uploaded_file(uploaded_image)
         return render(request, "courses/success.html")
     
     return render(request, "courses/upload.html")
+
+def handle_uploaded_file(file):
+    """
+    Aynı isimde dosya yüklenirse üzerine yazılacak.
+    """
+    with open("temp/" + file.name, "wb+") as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)
 
 def details(request, slug):
     
