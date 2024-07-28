@@ -33,6 +33,9 @@ def search(request):
     })
 
 def createCourse(request):
+
+    if not request.user.is_authenticated:
+        return redirect("index")
     
     if request.method == "POST":
         form = CourseCreateForm(request.POST, request.FILES)
