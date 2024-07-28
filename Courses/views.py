@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth.decorators import login_required
 
 from Courses.forms import CourseCreateForm, CourseEditForm, CourseUploadForm
 from .models import Category, Course, Upload
@@ -32,10 +33,8 @@ def search(request):
         "categories": kategoriler
     })
 
+@login_required(login_url="/account/login")
 def createCourse(request):
-
-    if not request.user.is_superuser:
-        return redirect("index")
     
     if request.method == "POST":
         form = CourseCreateForm(request.POST, request.FILES)
