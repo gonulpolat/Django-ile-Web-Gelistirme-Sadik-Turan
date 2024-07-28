@@ -7,17 +7,16 @@ from Courses.models import Course
 class CourseCreateForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = ('title', 'description', 'imageUrl', 'slug')
+        fields = ('title', 'description', 'image', 'slug')
         labels = {
             'title': 'Title',
             'description': 'Description',
-            'imageUrl': 'Image URL',
+            'image': 'Image URL',
             'slug': 'Slug'
         }
         widgets = {
             'title': TextInput(attrs={'class': 'form-control'}),
             'description': Textarea(attrs={'class': 'form-control'}),
-            'imageUrl': TextInput(attrs={'class': 'form-control'}),
             'slug': TextInput(attrs={'class': 'form-control'})
         }
         error_messages = {
@@ -27,10 +26,6 @@ class CourseCreateForm(forms.ModelForm):
             },
             'description': {
                 'required': 'Kurs açıklaması girmelisiniz.'
-            },
-            'imageUrl': {
-                'required': 'Fotoğraf eklemelisiniz.',
-                'max_length': 'Fotoğraf URL\'si en fazla 50 karakter olabilir.'
             }
         }
 
@@ -38,17 +33,16 @@ class CourseCreateForm(forms.ModelForm):
 class CourseEditForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = ('title', 'description', 'imageUrl', 'slug', 'categories', 'isActive', 'isHome')
+        fields = ('title', 'description', 'image', 'slug', 'categories', 'isActive', 'isHome')
         labels = {
             'title': 'Title',
             'description': 'Description',
-            'imageUrl': 'Image URL',
+            'image': 'Image URL',
             'slug': 'Slug'
         }
         widgets = {
             'title': TextInput(attrs={'class': 'form-control'}),
             'description': Textarea(attrs={'class': 'form-control'}),
-            'imageUrl': TextInput(attrs={'class': 'form-control'}),
             'slug': TextInput(attrs={'class': 'form-control'}),
             'categories': SelectMultiple(attrs={'class': 'form-control'})
         }
@@ -59,10 +53,6 @@ class CourseEditForm(forms.ModelForm):
             },
             'description': {
                 'required': 'Kurs açıklaması girmelisiniz.'
-            },
-            'imageUrl': {
-                'required': 'Fotoğraf eklemelisiniz.',
-                'max_length': 'Fotoğraf URL\'si en fazla 50 karakter olabilir.'
             }
         }
 
