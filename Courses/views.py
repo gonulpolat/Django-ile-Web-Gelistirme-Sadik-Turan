@@ -33,7 +33,7 @@ def search(request):
         "categories": kategoriler
     })
 
-@login_required(login_url="/account/login")
+@login_required()
 def createCourse(request):
     
     if request.method == "POST":
