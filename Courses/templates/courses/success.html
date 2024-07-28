@@ -14,13 +14,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <form action="{% url "upload" %}" method="POST">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input type="file" name="image" class="form-control">
-                        <button type="submit" class="btn btn-outline-secondary">Yükle</button>
-                    </div>
-                </form>
+                <p>Dosyanız başarılı bir şekilde yüklendi.</p>
             </div>
         </div>
     </div>

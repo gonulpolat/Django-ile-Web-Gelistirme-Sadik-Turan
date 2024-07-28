@@ -84,6 +84,15 @@ def courseDelete(request, id):
     })
 
 def upload(request):
+
+    if request.method == "POST":
+        uploaded_image = request.FILES["image"]
+        print(uploaded_image)
+        print(uploaded_image.name)
+        print(uploaded_image.size)
+        print(uploaded_image.content_type)
+        return render(request, "courses/success.html")
+    
     return render(request, "courses/upload.html")
 
 def details(request, slug):
