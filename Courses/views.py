@@ -83,6 +83,9 @@ def courseDelete(request, id):
         "course": course
     })
 
+def upload(request):
+    return render(request, "courses/upload.html")
+
 def details(request, slug):
     
     course = get_object_or_404(Course, slug=slug)
