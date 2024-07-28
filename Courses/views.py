@@ -1,3 +1,5 @@
+import os
+import random
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -94,9 +96,14 @@ def upload(request):
 
 def handle_uploaded_file(file):
     """
-    Aynı isimde dosya yüklenirse üzerine yazılacak.
+    Dosya isimleri random sayılarla oluşturulacak.
+    Aynı isimde dosya yüklenirse de farklı isimlerle kaydedilecek.
     """
-    with open("temp/" + file.name, "wb+") as destination:
+
+    number = random.randint(1, 99999)
+    file_name, file_extension = os.path.splitext(file.name)
+    name = file_name + "_" + str(number) + file_extension
+    with open("temp/" + name, "wb+") as destination:
         for chunk in file.chunks():
             destination.write(chunk)
 
