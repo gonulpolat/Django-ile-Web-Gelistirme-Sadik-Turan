@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 
 # Create your views here.
@@ -26,4 +26,5 @@ def UserRegister(request):
     return render(request, 'account/register.html')
 
 def UserLogout(request):
+    logout(request)
     return redirect("index")
