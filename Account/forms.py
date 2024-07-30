@@ -35,6 +35,7 @@ class NewUserForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget = widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'})
         self.fields['email'].widget = widgets.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'})
+        self.fields['email'].required = True
         self.fields['password1'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'})
         self.fields['password2'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'})
         
