@@ -1,3 +1,4 @@
+from django_ckeditor_5.fields import CKEditor5Field
 from django.db import models
 
 # Create your models here.
@@ -11,7 +12,8 @@ class Category(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=50)
-    description = models.TextField()
+    subtitle = models.CharField(max_length=100, default="")
+    description = CKEditor5Field(config_name='extends')
     image = models.ImageField(upload_to="images", default="")
     date = models.DateField(auto_now_add=True)
     isActive = models.BooleanField(default=False)
