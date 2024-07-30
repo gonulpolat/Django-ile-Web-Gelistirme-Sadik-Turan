@@ -1,6 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import redirect, render
 
 from Account.forms import LoginUserForm, NewUserForm
@@ -68,3 +68,22 @@ def UserLogout(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, 'You have successfully logged out')
     return redirect("index")
+
+def UserChangePassword(request):
+
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.add_message(request, messages.SUCCESS, 'You have successfully changed your password. Please login again')
+            logout(request)
+            return redirect("login")
+        else:
+            messages.add_message(request, messages.ERROR, 'Invalid password change')
+            return render(request, 'account/change_password.html', {"form": form})
+
+    form = PasswordChangeForm(user=request.user)
+
+    return render(request, 'account/change_password.html', {"form": form})
