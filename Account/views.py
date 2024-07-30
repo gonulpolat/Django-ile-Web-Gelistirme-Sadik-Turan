@@ -46,8 +46,17 @@ def UserRegister(request):
 
         if form.is_valid():
             form.save()
+            
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+
             messages.add_message(request, messages.SUCCESS, 'You have successfully registered')
-            return redirect('login')
+
+            return redirect('index')
+        
         else:
             return render(request, 'account/register.html', {'form': form})
 
