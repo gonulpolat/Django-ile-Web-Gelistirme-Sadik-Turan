@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
@@ -7,7 +8,8 @@ from django.shortcuts import redirect, render
 def UserLogin(request):
 
     if request.user.is_authenticated and "next" in request.GET:
-        return render(request, 'account/login.html', {'error': 'You must be logged out to login as admin'})
+        messages.add_message(request, messages.ERROR, 'You must be logged out to login as admin')
+        return render(request, 'account/login.html')
 
     if request.method == 'POST':
         username = request.POST['username']
@@ -17,13 +19,15 @@ def UserLogin(request):
 
         if user is not None:
             login(request, user)
+            messages.add_message(request, messages.SUCCESS, 'You have successfully logged in')
             nextUrl = request.GET.get('next', None)
             if nextUrl is None:
                 return redirect('index')
             else:
                 return redirect(nextUrl)
         else:
-            return render(request, 'account/login.html', {'error': 'Invalid username or password'})
+            messages.add_message(request, messages.ERROR, 'Invalid username or password')
+            return render(request, 'account/login.html')
     else:
         return render(request, 'account/login.html')
 
@@ -61,4 +65,5 @@ def UserRegister(request):
 
 def UserLogout(request):
     logout(request)
+    messages.add_message(request, messages.SUCCESS, 'You have successfully logged out')
     return redirect("index")
