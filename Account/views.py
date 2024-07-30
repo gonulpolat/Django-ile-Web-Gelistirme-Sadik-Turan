@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
 from Account.forms import LoginUserForm
@@ -42,33 +42,18 @@ def UserLogin(request):
 def UserRegister(request):
 
     if request.method == "POST":
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        repassword = request.POST['repassword']
+        form = UserCreationForm(request.POST)
 
-        if password != repassword:
-            messages.add_message(request, messages.ERROR, 'Passwords do not match')
-            return render(request, 'account/register.html', 
-                          {"username": username,
-                           "email": email
-                           })
-        
-        if User.objects.filter(username=username).exists():
-            messages.add_message(request, messages.ERROR, 'Username is already taken')
-            return render(request, 'account/register.html',{"email": email})
-        
-        if User.objects.filter(email=email).exists():
-            messages.add_message(request, messages.ERROR, 'Email is already taken')
-            return render(request, 'account/register.html', {"username": username})
-        
-        user = User.objects.create_user(username=username, email=email, password=password)
-        user.save()
-        messages.add_message(request, messages.SUCCESS, 'User created successfully')
-        return redirect('login')        
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'You have successfully registered')
+            return redirect('login')
+        else:
+            return render(request, 'account/register.html', {'form': form})
 
     else:
-        return render(request, 'account/register.html')
+        form = UserCreationForm()
+        return render(request, 'account/register.html', {'form': form})
 
 def UserLogout(request):
     logout(request)
