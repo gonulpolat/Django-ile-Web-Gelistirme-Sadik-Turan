@@ -29,11 +29,13 @@ class LoginUserForm(AuthenticationForm):
 class NewUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ("username", "email")
+        fields = ("username", "email", "first_name", "last_name")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget = widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'})
+        self.fields["first_name"].widget = widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'})
+        self.fields["last_name"].widget = widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'})
         self.fields['email'].widget = widgets.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'})
         self.fields['email'].required = True
         self.fields['password1'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'})
