@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Course
+from .models import Category, Course, Slider
 
 # Register your models here.
 
@@ -28,4 +28,7 @@ class CourseAdmin(admin.ModelAdmin):
             html += category.name + ', '
 
         return html
+    
+
+admin.site.register(Slider)
 

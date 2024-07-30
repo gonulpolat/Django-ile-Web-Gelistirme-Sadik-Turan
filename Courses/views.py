@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 from Courses.forms import CourseCreateForm, CourseEditForm, CourseUploadForm
-from .models import Category, Course, Upload
+from .models import Category, Course, Slider, Upload
 
 # Create your views here.
 
@@ -13,9 +13,12 @@ def index(request):
 
     kurslar = Course.objects.filter(isActive=True, isHome=True)
 
+    sliders = Slider.objects.filter(isActive=True)
+
     return render(request, "courses/index.html", {
         "courses": kurslar,
-        "categories": kategoriler
+        "categories": kategoriler,
+        "sliders": sliders
     })
 
 def search(request):
