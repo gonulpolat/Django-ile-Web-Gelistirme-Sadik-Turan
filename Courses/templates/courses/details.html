@@ -16,7 +16,7 @@
         <div class="col-4">
             <img
                 class="rounded"
-                src="{% static 'courses/img/'|add:course.image %}"
+                src="{{ course.image.url }}"
                 alt="{{ course.title }}"
                 style="width: 100%; height: 100%"
             />
