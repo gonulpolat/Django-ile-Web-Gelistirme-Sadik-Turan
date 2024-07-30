@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
@@ -12,24 +13,30 @@ def UserLogin(request):
         return render(request, 'account/login.html')
 
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        
-        user = authenticate(request, username=username, password=password)
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            messages.add_message(request, messages.SUCCESS, 'You have successfully logged in')
-            nextUrl = request.GET.get('next', None)
-            if nextUrl is None:
-                return redirect('index')
+            if user is not None:
+                login(request, user)
+                messages.add_message(request, messages.SUCCESS, 'You have successfully logged in')
+                nextUrl = request.GET.get('next', None)
+                if nextUrl is None:
+                    return redirect('index')
+                else:
+                    return redirect(nextUrl)
             else:
-                return redirect(nextUrl)
+                messages.add_message(request, messages.ERROR, 'Invalid username or password')
+                return render(request, 'account/login.html', {'form': form})
         else:
             messages.add_message(request, messages.ERROR, 'Invalid username or password')
-            return render(request, 'account/login.html')
+            return render(request, 'account/login.html', {'form': form})
     else:
-        return render(request, 'account/login.html')
+        form = AuthenticationForm()
+        return render(request, 'account/login.html', {'form': form})
 
 def UserRegister(request):
 
