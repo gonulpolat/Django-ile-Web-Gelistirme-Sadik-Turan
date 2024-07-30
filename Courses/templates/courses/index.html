@@ -19,6 +19,10 @@
             </div>
             <div class="col-9">
                 <!--content-->
+
+                <!--slider-->
+                {% include "courses/partials/_slider.html" %}
+
                 {% if courses|length == 0 %}
                     <div class="alert alert-warning" role="alert">
                         Kurs bulunamadı.
