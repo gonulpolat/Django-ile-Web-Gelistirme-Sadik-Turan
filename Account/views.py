@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
-from Account.forms import LoginUserForm
+from Account.forms import LoginUserForm, NewUserForm
 
 # Create your views here.
 
@@ -42,7 +42,7 @@ def UserLogin(request):
 def UserRegister(request):
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = NewUserForm(request.POST)
 
         if form.is_valid():
             form.save()
@@ -61,7 +61,7 @@ def UserRegister(request):
             return render(request, 'account/register.html', {'form': form})
 
     else:
-        form = UserCreationForm()
+        form = NewUserForm()
         return render(request, 'account/register.html', {'form': form})
 
 def UserLogout(request):
