@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import redirect, render
 
-from Account.forms import LoginUserForm, NewUserForm
+from Account.forms import LoginUserForm, NewUserForm, UserPasswordChangeForm
 
 # Create your views here.
 
@@ -72,7 +72,7 @@ def UserLogout(request):
 def UserChangePassword(request):
 
     if request.method == "POST":
-        form = PasswordChangeForm(user=request.user, data=request.POST)
+        form = UserPasswordChangeForm(user=request.user, data=request.POST)
 
         if form.is_valid():
             user = form.save()
@@ -84,6 +84,6 @@ def UserChangePassword(request):
             messages.add_message(request, messages.ERROR, 'Invalid password change')
             return render(request, 'account/change_password.html', {"form": form})
 
-    form = PasswordChangeForm(user=request.user)
+    form = UserPasswordChangeForm(user=request.user)
 
     return render(request, 'account/change_password.html', {"form": form})
